@@ -4,11 +4,12 @@ import { StyleSheet, TextInput, View, Text, Button } from "react-native";
 
 export default function App() {
   const [goal, setGoal] = useState("");
+  const [goalList, setGoalList] = useState([]);
 
   const goalInputHandler = (value) => setGoal(value);
 
   const addGoalHandler = () => {
-    console.log(goal);
+    setGoalList((prevGoals) => [...prevGoals, goal]);
   };
 
   return (
@@ -23,7 +24,9 @@ export default function App() {
       </View>
 
       <View style={styles.goalsContainer}>
-        <Text>List of goals...</Text>
+        {goalList.map((item) => (
+          <Text key={Math.round(Math.random() * 100)}>{item}</Text>
+        ))}
       </View>
 
       <StatusBar style="auto" />
