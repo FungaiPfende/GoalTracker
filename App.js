@@ -9,8 +9,12 @@ export default function App() {
   const [goalList, setGoalList] = useState([]);
   const [modalVisibility, setModalVisibility] = useState(false);
 
-  const startAddGoalHandler = () => {
+  const showModal = () => {
     setModalVisibility(true);
+  };
+
+  const hideModal = () => {
+    setModalVisibility(false);
   };
 
   const deleteGoal = (id) => {
@@ -21,12 +25,12 @@ export default function App() {
 
   return (
     <View style={styles.appContainer}>
-      <Button
-        title="Add new goal"
-        color="#5E0ACC"
-        onPress={startAddGoalHandler}
+      <Button title="Add new goal" color="#5E0ACC" onPress={showModal} />
+      <GoalInput
+        setGoalList={setGoalList}
+        modalVisibility={modalVisibility}
+        hideModal={hideModal}
       />
-      <GoalInput setGoalList={setGoalList} modalVisibility={modalVisibility} />
       <GoalList goalData={goalList} onDeleteItem={deleteGoal} />
 
       <StatusBar style="auto" />
