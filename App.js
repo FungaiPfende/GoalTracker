@@ -25,7 +25,7 @@ export default function App() {
 
   return (
     <View style={styles.appContainer}>
-      <Button title="Add new goal" color="#5E0ACC" onPress={showModal} />
+      <Button title="Add new goal" color="#A065EC" onPress={showModal} />
       <GoalInput
         setGoalList={setGoalList}
         modalVisibility={modalVisibility}
@@ -33,7 +33,7 @@ export default function App() {
       />
       <GoalList goalData={goalList} onDeleteItem={deleteGoal} />
 
-      <StatusBar style="auto" />
+      <StatusBar style="light+" />
     </View>
   );
 }
@@ -43,5 +43,6 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 50,
     paddingHorizontal: 16,
+    backgroundColor: "#1E065A",
   },
 });
