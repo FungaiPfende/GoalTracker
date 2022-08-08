@@ -7,11 +7,13 @@ export const GoalInput = ({ setGoalList }) => {
   const goalInputHandler = (value) => setGoal(value);
 
   const addGoalHandler = () => {
-    setGoalList((prevGoals) => [
-      ...prevGoals,
-      { title: goal, id: Math.random() * 1000000000 },
-    ]);
-    setGoal("");
+    if (goal) {
+      setGoalList((prevGoals) => [
+        ...prevGoals,
+        { title: goal, id: Math.random() * 1000000000 },
+      ]);
+      setGoal("");
+    }
   };
 
   return (

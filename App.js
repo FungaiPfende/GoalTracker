@@ -8,10 +8,16 @@ import { GoalList } from "./components/GoalList";
 export default function App() {
   const [goalList, setGoalList] = useState([]);
 
+  const deleteGoal = (id) => {
+    setGoalList((currentGoals) => {
+      return currentGoals.filter((goal) => goal.id !== id);
+    });
+  };
+
   return (
     <View style={styles.appContainer}>
       <GoalInput setGoalList={setGoalList} />
-      <GoalList goalData={goalList} />
+      <GoalList goalData={goalList} onDeleteItem={deleteGoal} />
 
       <StatusBar style="auto" />
     </View>
