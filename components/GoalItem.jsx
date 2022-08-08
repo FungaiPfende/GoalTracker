@@ -29,5 +29,5 @@ const styles = StyleSheet.create({
   pressedItem: {
     backgroundColor: "#210699",
     borderRadius: 6,
-  }
+  },
 });
