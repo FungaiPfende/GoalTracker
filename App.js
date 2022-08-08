@@ -25,7 +25,12 @@ export default function App() {
 
       <View style={styles.goalsContainer}>
         {goalList.map((item) => (
-          <Text key={Math.round(Math.random() * 100)}>{item}</Text>
+          <View
+            style={styles.goalItem}
+            key={Math.round(Math.random() * 100000)}
+          >
+            <Text style={styles.goalText}>{item}</Text>
+          </View>
         ))}
       </View>
 
@@ -48,12 +53,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 24,
     borderBottomWidth: 1,
-    borderBottomColor: "#ccc",
+    borderBottomColor: "#CCC",
   },
 
   textInput: {
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: "#CCC",
+    borderRadius: 5,
     width: "70%",
     padding: 8,
     marginRight: 8,
@@ -61,5 +67,16 @@ const styles = StyleSheet.create({
 
   goalsContainer: {
     flex: 5,
+  },
+
+  goalItem: {
+    margin: 8,
+    padding: 8,
+    borderRadius: 6,
+    backgroundColor: "#5E0ACC",
+  },
+
+  goalText: {
+    color: "#FFF",
   },
 });
